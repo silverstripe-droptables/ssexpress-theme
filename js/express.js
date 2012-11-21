@@ -8,29 +8,25 @@
 
 
 		 // fix sub nav on scroll
-	    var $win = $(window), 
-	    	$nav = $('.navbar'), 
-	    	navTop = $('.navbar').length && $('.navbar').offset().top, 
-	    	isFixed = 0;
+	    var $win = $(window),
+	    	$nav = $('.navbar'),
+	    	navTop = $('.navbar').length && $('.navbar').offset().top;
 
-	    	processScroll();
-
-	    $nav.on('click', function () {
-	      if (!isFixed) setTimeout(function () {  
-	      		$win.scrollTop($win.scrollTop() - 47); 
-	      }, 10);
+	    $nav.on('show', function(){
+	    	if (!$(this).is('.navbar-fixed-top')) {
+				$win.scrollTop(navTop);
+			};
 	    });
 
     	$win.on('scroll', processScroll);
+    	processScroll();
 
 	    function processScroll() {
-	      var i, scrollTop = $win.scrollTop();
-	      if (scrollTop >= navTop && !isFixed) {
-	        isFixed = 1;
+	      var scrollTop = $win.scrollTop();
+	      if (scrollTop >= navTop && !$nav.is('.navbar-fixed-top')) {
 	        $nav.addClass('navbar-fixed-top');
 	        $('#layout').addClass('fixed-padding');
-	      } else if (scrollTop < navTop && isFixed) {
-	        isFixed = 0;
+	      } else if (scrollTop < navTop && $nav.is('.navbar-fixed-top')) {
 	        $nav.removeClass('navbar-fixed-top');
 	        $('#layout').removeClass('fixed-padding');
 	      }

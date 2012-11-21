@@ -19,9 +19,9 @@
 $experimental-support-for-svg: true; //for IE9 SVG gradient support 
 
 @import 'bootstrap_config/bootstrap.scss'; //Core bootstrap layout components
-@import 'bootstrap_config/responsive.scss'; //Core bootstrap responsive components
 @import 'components/forms'; //form specific scss
 @import 'components/navigation'; //navigation components
+@import 'bootstrap_config/responsive.scss'; //Core bootstrap responsive components
 @import 'components/mobile'; //mobile specific adjustments
 @import 'components/sitemap'; //sitemap specific scss
 @import 'components/results'; //carousel specific scss
